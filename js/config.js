@@ -27,7 +27,7 @@ const SITE_CONFIG = {
       {
         name: "Harshvardhan Rathod",
         role: "Campus Ambassador",
-        photo: "assets/team-harshvardhan.jpg",
+        photo: "assets/team-harshvardhan.png",
         phone: "7709285391",
         email: "hmr280606@gmail.com"
       },
@@ -68,8 +68,8 @@ const SITE_CONFIG = {
 
   facts: {
     teamSize: "3 students per team",
-    registrationFee: "To be confirmed — see Welcome Kit",
-    registrationLink: "To be added — see Welcome Kit",
+    registrationFee: "inr 1500, each Team",
+    registrationLink: "https://amritaicpc.in/?utm_source=103&utm_medium=Email_Description&utm_campaign=ICPCAM2026",
     registrationDeadline: "Sept 25, 2026",
     onlinePrelims: "Oct 3, 2026 (2.5 hours)",
     preliminaryFormat: "Online contest; top teams advance to onsite Regionals",
