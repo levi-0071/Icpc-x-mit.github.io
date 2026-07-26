@@ -124,3 +124,8 @@ Once real values are available, updating `js/config.js` alone updates every plac
 - All colors, fonts, and spacing live in `css/variables.css` — change the palette or type scale in one place.
 - Team size, fees, and links are centralized in `js/config.js` and injected into the DOM via `data-link`, `data-video-src`, and `data-fact` attributes in `index.html`.
 - Reduced-motion users automatically skip floating/parallax effects and scroll reveals resolve instantly.
+
+---
+## Contributors
+ - Rugved Dusane
+ - Harshvardhan Rathod
