@@ -1,0 +1,169 @@
+/* ============================================
+   Day / Night Theme
+   Default site theme is "night" (the original dark
+   design). Adding data-theme="day" to <html> (done
+   by js/modules/theme.js, persisted in localStorage)
+   swaps the design tokens below to a light palette
+   and swaps the hero background photo + overlay.
+   ============================================ */
+
+:root[data-theme="day"] {
+  /* ---- Surfaces ---- */
+  --color-bg: #f6f7fb;
+  --color-bg-alt: #eceef6;
+  --color-surface: #ffffff;
+  --color-surface-raised: #ffffff;
+  --color-border: rgba(13, 18, 32, 0.08);
+  --color-border-strong: rgba(13, 18, 32, 0.14);
+
+  /* ---- Text ---- */
+  --color-text-primary: #0d1220;
+  --color-text-secondary: #454f66;
+  --color-text-muted: #6b7591;
+
+  /* ---- Shadow / glow (softer for a light surface) ---- */
+  --shadow-card: 0 8px 30px rgba(20, 24, 45, 0.1);
+  --glow-blue: 0 0 40px rgba(62, 142, 247, 0.18);
+
+  /* ---- Hero background: swap to the light trophy photo + light overlay ---- */
+  --hero-bg-image: url("../assets/hero-bg-day.jpg");
+  --hero-overlay: linear-gradient(
+    180deg,
+    rgba(246, 247, 251, 0.55) 0%,
+    rgba(246, 247, 251, 0.45) 45%,
+    rgba(246, 247, 251, 0.8) 100%
+  );
+}
+
+/* ---- Ambient body glow: tone down for a light background ---- */
+:root[data-theme="day"] body::before {
+  opacity: 0.5;
+}
+
+/* ---------------------------------------------
+   Component overrides
+   A handful of places use hardcoded rgba(255,255,255,*)
+   / rgba(6,7,12,*) washes that assume a dark surface.
+   Flip those specifically for day mode.
+   --------------------------------------------- */
+
+/* Navbar sticky background */
+:root[data-theme="day"] .navbar {
+  background: rgba(246, 247, 251, 0.7);
+}
+:root[data-theme="day"] .navbar.is-scrolled {
+  background: rgba(246, 247, 251, 0.92);
+}
+
+/* Secondary button wash */
+:root[data-theme="day"] .btn-secondary {
+  background: rgba(13, 18, 32, 0.03);
+}
+:root[data-theme="day"] .btn-secondary:hover {
+  background: rgba(13, 18, 32, 0.06);
+}
+
+/* Navbar flyout hover */
+:root[data-theme="day"] .navbar__flyout a:hover {
+  background: rgba(13, 18, 32, 0.04);
+}
+
+/* Navbar logo: swap to the light-background variant in day mode */
+:root[data-theme="day"] .navbar__logo--night {
+  display: none;
+}
+:root[data-theme="day"] .navbar__logo--day {
+  display: block;
+}
+
+/* Bell + theme toggle buttons */
+:root[data-theme="day"] .navbar__bell,
+:root[data-theme="day"] .navbar__theme-toggle {
+  background: rgba(13, 18, 32, 0.04);
+}
+:root[data-theme="day"] .navbar__bell:hover,
+:root[data-theme="day"] .navbar__theme-toggle:hover {
+  background: rgba(13, 18, 32, 0.08);
+}
+:root[data-theme="day"] .navbar__bell-badge {
+  border-color: var(--color-bg);
+}
+
+/* Toast + dashboard close buttons */
+:root[data-theme="day"] .notif-toast__close,
+:root[data-theme="day"] .notif-dash__close {
+  background: rgba(13, 18, 32, 0.04);
+}
+:root[data-theme="day"] .notif-toast__close:hover,
+:root[data-theme="day"] .notif-dash__close:hover {
+  background: rgba(13, 18, 32, 0.08);
+}
+
+/* Notification toast progress track */
+:root[data-theme="day"] .notif-toast__progress {
+  background: rgba(13, 18, 32, 0.06);
+}
+
+/* Dashboard overlay + shadow */
+:root[data-theme="day"] .notif-overlay {
+  background: rgba(20, 24, 45, 0.35);
+}
+:root[data-theme="day"] .notif-dash {
+  box-shadow: -20px 0 60px rgba(20, 24, 45, 0.18);
+}
+:root[data-theme="day"] .notif-dash__item:hover {
+  background: rgba(13, 18, 32, 0.03);
+}
+
+/* Footer watermark stroke */
+:root[data-theme="day"] .footer__watermark {
+  -webkit-text-stroke: 1px rgba(13, 18, 32, 0.06);
+}
+
+/* ============================================
+   Theme toggle button (navbar)
+   ============================================ */
+.navbar__theme-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border);
+  transition: background var(--duration-fast), color var(--duration-fast), transform var(--duration-fast);
+}
+
+.navbar__theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-primary);
+  transform: translateY(-1px) rotate(15deg);
+}
+
+.navbar__theme-toggle .theme-icon-day,
+.navbar__theme-toggle .theme-icon-night {
+  display: none;
+}
+
+/* Night (default): show the moon, clicking switches to day */
+.navbar__theme-toggle .theme-icon-night {
+  display: block;
+}
+
+/* Day mode: show the sun, clicking switches back to night */
+:root[data-theme="day"] .navbar__theme-toggle .theme-icon-night {
+  display: none;
+}
+:root[data-theme="day"] .navbar__theme-toggle .theme-icon-day {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__bg {
+    transition: none;
+  }
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "n1",
+    "type": "alert",
+    "title": "Registrations Open!",
+    "message": "Lock in your spot before the deadline — form your team of three and register today.",
+    "date": "2026-07-26",
+    "dateLabel": "Today",
+    "link": "registration",
+    "read": false
+  },
+  {
+    "id": "n2",
+    "type": "info",
+    "title": "Preliminary Round Dates Announced",
+    "message": "The online preliminary round schedule is now live — check the Roadmap section for details.",
+    "date": "2026-07-24",
+    "dateLabel": "2 days ago",
+    "link": "roadmap",
+    "read": false
+  },
+  {
+    "id": "n3",
+    "type": "info",
+    "title": "Practice Session Tomorrow",
+    "message": "Join CoDeC's weekly practice contest to warm up before the preliminary round.",
+    "date": "2026-07-19",
+    "dateLabel": "1 week ago",
+    "link": "resources",
+    "read": true
+  },
+  {
+    "id": "n4",
+    "type": "warning",
+    "title": "Team Formation Guidelines",
+    "message": "New teams must be finalized before the registration deadline — review the guidelines if you still need teammates.",
+    "date": "2026-07-12",
+    "dateLabel": "2 weeks ago",
+    "link": "needATeamForm",
+    "read": true
+  }
+]

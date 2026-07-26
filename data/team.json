@@ -1,0 +1,22 @@
+{
+  "members": [
+    {
+      "name": "Harshvardhan Rathod",
+      "role": "Campus Ambassador — ICPC Amritapuri",
+      "photo": "assets/team-placeholder.png",
+      "socials": {
+        "linkedin": "#",
+        "email": "mailto:codec@mitwpu.edu.in"
+      }
+    },
+    {
+      "name": "Rugved Dusane",
+      "role": "Campus Ambassador — ICPC Amritapuri",
+      "photo": "assets/team-placeholder.png",
+      "socials": {
+        "linkedin": "#",
+        "email": "mailto:codec@mitwpu.edu.in"
+      }
+    }
+  ]
+}

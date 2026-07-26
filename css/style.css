@@ -1,0 +1,537 @@
+/* ============================================
+   Global Styles — ICPC Amritapuri 2026
+   ============================================ */
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Ambient background glow, fixed behind all content */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(60% 45% at 82% 8%, rgba(62, 142, 247, 0.16) 0%, transparent 70%),
+    radial-gradient(45% 35% at 12% 85%, rgba(108, 92, 231, 0.14) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+
+section {
+  position: relative;
+  padding-block: var(--space-3xl);
+  z-index: 1;
+}
+
+@media (max-width: 720px) {
+  section {
+    padding-block: var(--space-2xl);
+  }
+  .container {
+    padding-inline: var(--space-md);
+  }
+}
+
+/* ---- Typography ---- */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+h2.section-title {
+  font-size: var(--fs-h2);
+  margin-bottom: var(--space-sm);
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-blue-bright);
+  margin-bottom: var(--space-sm);
+}
+
+.section-eyebrow::before {
+  content: '';
+  width: 18px;
+  height: 1px;
+  background: var(--color-blue-bright);
+}
+
+.section-lead {
+  max-width: 640px;
+  color: var(--color-text-secondary);
+  font-size: var(--fs-body-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.text-gradient {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--fs-body);
+  white-space: nowrap;
+  transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out), background var(--duration-fast) var(--ease-out);
+}
+
+.btn svg {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.btn:hover svg {
+  transform: translateX(3px);
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: #fff;
+  box-shadow: var(--glow-blue);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 50px rgba(62, 142, 247, 0.4);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-strong);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  position: relative;
+  padding-top: calc(var(--space-3xl) + 2rem);
+  padding-bottom: var(--space-2xl);
+  background-color: var(--color-bg); /* fallback if the image never loads */
+  overflow: hidden;
+}
+
+/* Background image layer + dark gradient overlay for text readability.
+   Swap the url() below for your own image at any time. */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: var(--hero-bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity var(--duration-med) var(--ease-out);
+}
+
+.hero__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Dark (night) or light (day) gradient overlay — set per-theme via --hero-overlay
+     so hero copy stays readable over either background photo. */
+  background: var(--hero-overlay);
+}
+
+/* Everything else in .hero (copy + visual) sits above the background layer */
+.hero__grid {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.hero__title {
+  font-size: var(--fs-hero);
+  margin-bottom: var(--space-md);
+}
+
+.hero__title span {
+  display: block;
+}
+
+.hero__subtitle {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-body-lg);
+  max-width: 480px;
+  margin-bottom: var(--space-lg);
+}
+
+.hero__actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-xl);
+}
+
+.hero__meta {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+}
+
+.hero__meta strong {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+/* ---- Hero visual: trophy + floating rail ---- */
+.hero__visual {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.hero__trophy-wrap {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+}
+
+.hero__trophy-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__trophy-glow {
+  position: absolute;
+  inset: -20%;
+  background: var(--gradient-glow);
+  filter: blur(30px);
+  z-index: -1;
+}
+
+/* Vertical rail: journey preview, right of trophy */
+.hero__rail {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-block: var(--space-sm);
+}
+
+.hero__rail-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding-bottom: var(--space-lg);
+}
+
+.hero__rail-item:last-child {
+  padding-bottom: 0;
+}
+
+.hero__rail-item::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 34px;
+  bottom: -4px;
+  width: 1px;
+  background: var(--color-border-strong);
+}
+
+.hero__rail-item:last-child::before {
+  display: none;
+}
+
+.hero__rail-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface-raised);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+.hero__rail-item.is-active .hero__rail-icon {
+  border-color: var(--color-blue-bright);
+  color: var(--color-blue-bright);
+  box-shadow: 0 0 0 4px rgba(62, 142, 247, 0.15);
+}
+
+.hero__rail-num {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--color-blue-bright);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.hero__rail-label {
+  font-size: var(--fs-small);
+  color: var(--color-text-secondary);
+  line-height: 1.3;
+}
+
+@media (max-width: 980px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+  }
+  .hero__visual {
+    grid-template-columns: 1fr;
+  }
+  .hero__rail {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: var(--space-lg);
+  }
+  .hero__rail-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 0;
+    min-width: 100px;
+  }
+  .hero__rail-item::before {
+    left: 34px;
+    top: 15px;
+    right: -110%;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+  }
+}
+
+/* ============================================
+   ABOUT
+   ============================================ */
+.about__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.about-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+
+.about-card h3 {
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-primary);
+}
+
+.about-card p {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-body);
+  line-height: 1.7;
+}
+
+.about-card--feature {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.12), rgba(62, 142, 247, 0.06));
+  border: 1px solid rgba(108, 92, 231, 0.25);
+}
+
+.about-card--feature .why-list {
+  margin-top: var(--space-md);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.why-list li {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-small);
+  line-height: 1.6;
+  padding-left: var(--space-md);
+  position: relative;
+}
+
+.why-list li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--color-blue-bright);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 780px) {
+  .about__grid,
+  .about-card--feature .why-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   RESOURCES / VIDEOS
+   ============================================ */
+.resources__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-md);
+}
+
+.video-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.video-card__frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.video-card__frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-card__body {
+  padding: var(--space-md);
+}
+
+.video-card__body h4 {
+  font-size: var(--fs-body-lg);
+  margin-bottom: var(--space-2xs);
+}
+
+.video-card__body p {
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+}
+
+.resource-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
+}
+
+.resource-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-primary);
+  font-size: var(--fs-body);
+  transition: border-color var(--duration-fast), transform var(--duration-fast);
+}
+
+.resource-links a:hover {
+  border-color: var(--color-blue-bright);
+  transform: translateX(4px);
+}
+
+@media (max-width: 780px) {
+  .resources__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   STAY UPDATED
+   ============================================ */
+.stay-updated {
+  text-align: center;
+}
+
+.stay-updated__grid {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-top: var(--space-lg);
+}
+
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface);
+  font-size: var(--fs-body);
+  transition: border-color var(--duration-fast), transform var(--duration-fast);
+}
+
+.social-pill:hover {
+  border-color: var(--color-blue-bright);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   Scroll reveal utility (used by scroll.js)
+   ============================================ */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--duration-slow) var(--ease-out), transform var(--duration-slow) var(--ease-out);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Floating decorative element utility (used by floating.js) */
+.float-el {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform;
+}

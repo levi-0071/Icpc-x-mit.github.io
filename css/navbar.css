@@ -1,0 +1,235 @@
+/* ============================================
+   Navbar
+   ============================================ */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding-block: var(--space-md);
+  background: rgba(6, 7, 12, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: background var(--duration-fast), border-color var(--duration-fast), padding var(--duration-fast);
+}
+
+.navbar.is-scrolled {
+  background: rgba(6, 7, 12, 0.85);
+  border-bottom-color: var(--color-border);
+  padding-block: var(--space-sm);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-display);
+}
+
+.navbar__logo {
+  height: 34px;
+  width: auto;
+  display: none;
+}
+
+/* Only the variant matching the active theme is shown (default: night).
+   Day-mode override lives in css/theme.css. */
+.navbar__logo--night {
+  display: block;
+}
+
+@media (min-width: 720px) {
+  .navbar__logo {
+    height: 40px;
+  }
+}
+
+/* ---- Links ---- */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  list-style: none;
+}
+
+.navbar__link-item {
+  position: relative;
+}
+
+.navbar__link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fs-body);
+  color: var(--color-text-secondary);
+  padding-block: var(--space-xs);
+  transition: color var(--duration-fast);
+}
+
+.navbar__link:hover,
+.navbar__link.is-active {
+  color: var(--color-text-primary);
+}
+
+.navbar__link.is-active {
+  color: var(--color-blue-bright);
+}
+
+.navbar__link svg {
+  width: 12px;
+  height: 12px;
+  transition: transform var(--duration-fast);
+}
+
+.navbar__link-item.is-open .navbar__link svg {
+  transform: rotate(180deg);
+}
+
+/* ---- Flyout ---- */
+.navbar__flyout {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translate(-50%, 8px);
+  min-width: 260px;
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm);
+  box-shadow: var(--shadow-card);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out), visibility var(--duration-fast);
+}
+
+.navbar__link-item.is-open .navbar__flyout {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.navbar__flyout a {
+  display: block;
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-small);
+  color: var(--color-text-secondary);
+  transition: background var(--duration-fast), color var(--duration-fast);
+}
+
+.navbar__flyout a:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-text-primary);
+}
+
+.navbar__flyout-title {
+  display: block;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 2px;
+}
+
+.navbar__flyout-desc {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: var(--fs-xs);
+}
+
+/* ---- Right side ---- */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: var(--space-xs);
+}
+
+.navbar__toggle span {
+  width: 22px;
+  height: 2px;
+  background: var(--color-text-primary);
+  border-radius: 2px;
+  transition: transform var(--duration-fast), opacity var(--duration-fast);
+}
+
+.navbar.is-menu-open .navbar__toggle span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.navbar.is-menu-open .navbar__toggle span:nth-child(2) {
+  opacity: 0;
+}
+.navbar.is-menu-open .navbar__toggle span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 900px) {
+  .navbar__toggle {
+    display: flex;
+  }
+
+  .navbar__links {
+    position: fixed;
+    top: var(--nav-height, 72px);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--color-bg-alt);
+    padding: var(--space-md);
+    transform: translateX(100%);
+    transition: transform var(--duration-med) var(--ease-out);
+    overflow-y: auto;
+  }
+
+  .navbar.is-menu-open .navbar__links {
+    transform: translateX(0);
+  }
+
+  .navbar__link {
+    padding-block: var(--space-md);
+    border-bottom: 1px solid var(--color-border);
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .navbar__flyout {
+    position: static;
+    transform: none;
+    width: 100%;
+    box-shadow: none;
+    margin-top: 0;
+    max-height: 0;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+  }
+
+  .navbar__link-item.is-open .navbar__flyout {
+    max-height: 400px;
+    padding: var(--space-sm);
+    margin-bottom: var(--space-sm);
+    border: 1px solid var(--color-border);
+  }
+
+  .navbar__actions .btn-primary {
+    width: 100%;
+  }
+}
