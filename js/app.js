@@ -35,24 +35,33 @@
 
     DOM.qsa("[data-fact]").forEach((el) => {
       const key = el.dataset.fact;
-      if (cfg.facts[key]) el.textContent = cfg.facts[key];
+      if (cfg.facts[key]) MD.applyTo(el, cfg.facts[key]);
     });
+  }
+
+  async function safeInit(name, fn) {
+    try {
+      await fn();
+    } catch (err) {
+      console.error(`[App] ${name} failed to init:`, err);
+    }
   }
 
   async function init() {
     applyConfigLinks();
     setCurrentYear();
 
-    NavbarModule.init();
-    ThemeModule.init();
+    await safeInit("NavbarModule", () => NavbarModule.init());
+    await safeInit("ThemeModule", () => ThemeModule.init());
     setNavHeightVar();
     window.addEventListener("resize", DOM.debounce(setNavHeightVar, 150));
 
-    await RoadmapModule.init();
-    NotificationsModule.init();
+    await safeInit("RoadmapModule", () => RoadmapModule.init());
+    await safeInit("NotificationsModule", () => NotificationsModule.init());
+    await safeInit("TeamModule", () => TeamModule.init());
 
-    FloatingAnimation.init();
-    ScrollAnimation.init();
+    await safeInit("FloatingAnimation", () => FloatingAnimation.init());
+    await safeInit("ScrollAnimation", () => ScrollAnimation.init());
   }
 
   if (document.readyState === "loading") {

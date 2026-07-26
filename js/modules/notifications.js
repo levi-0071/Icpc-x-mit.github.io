@@ -122,10 +122,10 @@ const NotificationsModule = (() => {
 
       const body = DOM.create("div", { class: "notif-dash__body" }, [
         DOM.create("div", { class: "notif-dash__top" }, [
-          DOM.create("span", { class: "notif-dash__title" }, [item.title]),
+          DOM.create("span", { class: "notif-dash__title", html: MD.render(item.title) }),
           DOM.create("span", { class: `notif-dash__badge notif-dash__badge--${item.type}` }, [item.type])
         ]),
-        DOM.create("p", { class: "notif-dash__message" }, [item.message]),
+        DOM.create("p", { class: "notif-dash__message", html: MD.render(item.message) }),
         DOM.create("span", { class: "notif-dash__date" }, [item.dateLabel || item.date])
       ]);
 

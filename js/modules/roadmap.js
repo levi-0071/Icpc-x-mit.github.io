@@ -5,6 +5,16 @@
    ============================================ */
 
 const RoadmapModule = (() => {
+  // Used if data/roadmap.json can't be fetched (e.g. opened via file://
+  // without a local server) so the section never renders empty.
+  const FALLBACK_STEPS = [
+    { step: 1, title: "Form your team", description: "Put together a team of three students. Teams can be interdisciplinary but every member must be a currently enrolled student at MIT-WPU." },
+    { step: 2, title: "Register on the official ICPC portal", description: "Complete your team registration on the official ICPC portal. The link will be shared in the CoDeC Welcome Kit — check the Quick Facts section below." },
+    { step: 3, title: "Pay the registration fee", description: "Submit the registration fee per the instructions on the portal. The exact amount will be confirmed and shared in the Welcome Kit." },
+    { step: 4, title: "Confirm before the deadline", description: "Make sure your team's registration and payment are complete before the deadline. Dates will be announced by CoDeC and CDC." },
+    { step: 5, title: "Prepare for the Preliminary Round", description: "Look out for prep sessions and practice resources shared by CoDeC and AlgoZenith to get your team ready for the online Preliminary Round." }
+  ];
+
   function renderItem(step, index, total) {
     const item = DOM.create("div", { class: "roadmap__item", "data-reveal": "" });
 
@@ -14,8 +24,8 @@ const RoadmapModule = (() => {
     ]);
 
     const content = DOM.create("div", { class: "roadmap__content" }, [
-      DOM.create("h3", {}, [step.title]),
-      DOM.create("p", {}, [step.description])
+      DOM.create("h3", { html: MD.render(step.title) }),
+      DOM.create("p", { html: MD.render(step.description) })
     ]);
 
     item.appendChild(marker);
@@ -28,15 +38,12 @@ const RoadmapModule = (() => {
     if (!container) return;
 
     const data = await DOM.fetchJSON("data/roadmap.json");
-    if (!data || !Array.isArray(data.steps)) {
-      console.warn("[RoadmapModule] No roadmap data found.");
-      return;
-    }
+    const steps = data && Array.isArray(data.steps) && data.steps.length ? data.steps : FALLBACK_STEPS;
 
     const frag = document.createDocumentFragment();
-    data.steps
+    steps
       .sort((a, b) => a.step - b.step)
-      .forEach((step, i) => frag.appendChild(renderItem(step, i, data.steps.length)));
+      .forEach((step, i) => frag.appendChild(renderItem(step, i, steps.length)));
 
     container.appendChild(frag);
 

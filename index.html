@@ -144,6 +144,16 @@
          ============================================ -->
     <section class="hero" id="hero">
       <div class="hero__bg" aria-hidden="true"></div>
+
+      <div class="hero__logo-frames">
+        <div class="logo-frame logo-frame--cdc">
+          <img src="assets/cdc_banner.png" alt="Career Development Centre (CDC) logo" loading="eager" />
+        </div>
+        <div class="logo-frame logo-frame--codec">
+          <img src="assets/codec_banner.png" alt="CoDeC logo" loading="eager" />
+        </div>
+      </div>
+
       <div class="container hero__grid">
         <div class="hero__copy">
           <div class="section-eyebrow">ICPC Amritapuri Regionals 2026</div>
@@ -529,59 +539,8 @@
         <h2 class="section-title">Our team</h2>
         <p class="section-lead">Faculty guidance, CDC support, and the students running point on the ground.</p>
 
-        <h3 class="team__group-title">Faculty & Coordinators</h3>
-        <div class="faculty__grid" data-stagger>
-          <div class="faculty-card" data-reveal>
-            <h4>Kishanprasad Gunale Sir</h4>
-            <p>Director – Career Development Centre (CDC), MIT-WPU</p>
-          </div>
-          <div class="faculty-card" data-reveal>
-            <h4>Mihir Mohite</h4>
-            <p>CoDeC President</p>
-          </div>
-          <div class="faculty-card" data-reveal>
-            <h4>Saket Tembekar</h4>
-            <p>Member at CDC</p>
-          </div>
-        </div>
-
-        <h3 class="team__group-title">Student Team — Campus Ambassadors</h3>
-        <div class="team__grid" data-stagger>
-          <div class="team-card" data-reveal>
-            <div class="team-card__photo">
-              <img src="assets/team-harshvardhan.jpg" alt="Harshvardhan Rathod" loading="lazy" />
-            </div>
-            <h4>Harshvardhan Rathod</h4>
-            <p class="team-card__role">Campus Ambassador</p>
-            <div class="team-card__contact">
-              <a href="tel:+917709285391">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg>
-                7709285391
-              </a>
-              <a href="mailto:hmr280606@gmail.com">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-                hmr280606@gmail.com
-              </a>
-            </div>
-          </div>
-
-          <div class="team-card" data-reveal>
-            <div class="team-card__photo">
-              <img src="assets/team-rugved.jpg" alt="Rugved Dusane" loading="lazy" />
-            </div>
-            <h4>Rugved Dusane</h4>
-            <p class="team-card__role">Campus Ambassador</p>
-            <div class="team-card__contact">
-              <a href="tel:+919673480827">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg>
-                9673480827
-              </a>
-              <a href="mailto:ultimaterd8@gmail.com">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-                ultimaterd8@gmail.com
-              </a>
-            </div>
-          </div>
+        <div data-team-groups>
+          <!-- Populated by js/modules/team.js from data/team.json (any number of groups) -->
         </div>
       </div>
     </section>
@@ -678,10 +637,12 @@
        ============================================ -->
   <script src="js/config.js"></script>
   <script src="js/utils/dom.js"></script>
+  <script src="js/utils/markdown.js"></script>
   <script src="js/modules/navbar.js"></script>
   <script src="js/modules/theme.js"></script>
   <script src="js/modules/roadmap.js"></script>
   <script src="js/modules/notifications.js"></script>
+  <script src="js/modules/team.js"></script>
   <script src="js/animations/floating.js"></script>
   <script src="js/animations/scroll.js"></script>
   <script src="js/app.js"></script>

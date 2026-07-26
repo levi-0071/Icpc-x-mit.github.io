@@ -177,6 +177,14 @@
   box-shadow: var(--shadow-card);
 }
 
+.team-card--clickable {
+  cursor: pointer;
+}
+
+.team-card--clickable:hover {
+  border-color: var(--color-blue-bright);
+}
+
 .team-card__photo {
   width: 96px;
   height: 96px;
@@ -190,6 +198,18 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.team-card__photo--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-primary);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
 }
 
 .team-card h4 {
@@ -236,7 +256,89 @@
 }
 
 /* ---------------------------------------------
-   4. FLOATING HELP BUTTON
+   4. HERO — CDC / CoDeC GOLDEN LOGO FRAMES
+   --------------------------------------------- */
+.hero__logo-frames {
+  position: absolute;
+  top: calc(var(--nav-height, 72px) + var(--space-md));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.logo-frame {
+  width: 72px;
+  height: 72px;
+  padding: 6px;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--color-surface-raised), var(--color-surface-raised)) padding-box,
+    linear-gradient(135deg, #ffe9a8, var(--color-yellow), #b8860b) border-box;
+  box-shadow: 0 0 24px rgba(255, 201, 60, 0.35), var(--shadow-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: logoFrameFloat 4.5s ease-in-out infinite;
+  transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.logo-frame:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 0 34px rgba(255, 201, 60, 0.5), var(--shadow-card);
+}
+
+.logo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: calc(var(--radius-md) - 6px);
+}
+
+.logo-frame--cdc {
+  animation-delay: 0s;
+}
+
+.logo-frame--codec {
+  margin-top: var(--space-lg);
+  animation-delay: 0.7s;
+}
+
+@keyframes logoFrameFloat {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-frame {
+    animation: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero__logo-frames {
+    position: static;
+    justify-content: center;
+    margin-bottom: var(--space-lg);
+  }
+  .logo-frame--codec {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-frame {
+    width: 58px;
+    height: 58px;
+  }
+}
+
+/* ---------------------------------------------
+   5. FLOATING HELP BUTTON
    --------------------------------------------- */
 .help-fab {
   position: fixed;

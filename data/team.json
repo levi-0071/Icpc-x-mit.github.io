@@ -1,22 +1,38 @@
 {
-  "members": [
+  "groups": [
     {
-      "name": "Harshvardhan Rathod",
-      "role": "Campus Ambassador — ICPC Amritapuri",
-      "photo": "assets/team-placeholder.png",
-      "socials": {
-        "linkedin": "#",
-        "email": "mailto:codec@mitwpu.edu.in"
-      }
+      "id": "faculty",
+      "title": "Faculty & Coordinators",
+      "members": [
+        {
+          "name": "Kishanprasad Gunale Sir",
+          "role": "Director – Career Development Centre (CDC), MIT-WPU",
+          "photo": "assets/faculty-Kishanprasad-Gunale.png",
+          "link": "https://www.linkedin.com/in/kishanprasad-gunale-98937271/"
+        }
+      ]
     },
     {
-      "name": "Rugved Dusane",
-      "role": "Campus Ambassador — ICPC Amritapuri",
-      "photo": "assets/team-placeholder.png",
-      "socials": {
-        "linkedin": "#",
-        "email": "mailto:codec@mitwpu.edu.in"
-      }
+      "id": "ambassadors",
+      "title": "Student Team — Campus Ambassadors",
+      "members": [
+        {
+          "name": "Harshvardhan Rathod",
+          "role": "Campus Ambassador",
+          "photo": "assets/team-harshvardhan.png",
+          "phone": "7709285391",
+          "email": "hmr280606@gmail.com",
+          "link": "https://happiocrz007.github.io"
+        },
+        {
+          "name": "Rugved Dusane",
+          "role": "Campus Ambassador",
+          "photo": "assets/team-rugved.jpg",
+          "phone": "9673480827",
+          "email": "ultimaterd8@gmail.com",
+          "link": "https://www.linkedin.com/in/rugveddusane/"
+        }
+      ]
     }
   ]
 }
