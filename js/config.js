@@ -54,10 +54,10 @@ const SITE_CONFIG = {
     howToRegisterVideo: "https://www.youtube.com/embed/[HOW_TO_REGISTER_VIDEO_ID]",
 
     // TODO: replace VIDEO_ID with the real "What is ICPC" YouTube video ID
-    whatIsIcpcVideo: "https://www.youtube.com/embed/[WHAT_IS_ICPC_VIDEO_ID]",
+    whatIsIcpcVideo: "https://www.youtube.com/watch?v=JB-WCVlZ30E",
 
     // TODO: replace VIDEO_ID with the real 2024 highlights YouTube video ID
-    amritapuri2024Highlights: "https://www.youtube.com/embed/[ICPC_2024_HIGHLIGHTS_VIDEO_ID]",
+    amritapuri2024Highlights: "https://youtu.be/WjXCyD8Xkgo?si=IE90xS5JiJdod9Fu",
 
     // TODO: replace with the real Google Form link for the floating Help button
     helpForm: "https://docs.google.com/forms/d/e/1FAIpQLScGiobgT6Iq2Nu5ZTIYIoZJ07NakZ8d6SzIr58yBqb5Jl1QVQ/viewform",
