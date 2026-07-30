@@ -42,7 +42,7 @@ const SITE_CONFIG = {
   },
 
   links: {
-    registration: "https://amritaicpc.in/?utm_source=103&utm_medium=Email_Description&utm_campaign=ICPCAM2026",
+    registration: "https://docs.google.com/forms/d/e/1FAIpQLScGiobgT6Iq2Nu5ZTIYIoZJ07NakZ8d6SzIr58yBqb5Jl1QVQ/closedform",
 
     // TODO: replace with your real "Need a Team" Google Doc/Form share link
     needATeamForm: "https://docs.google.com/forms/d/e/1FAIpQLScGiobgT6Iq2Nu5ZTIYIoZJ07NakZ8d6SzIr58yBqb5Jl1QVQ/viewform",
@@ -69,7 +69,7 @@ const SITE_CONFIG = {
   facts: {
     teamSize: "3 students per team",
     registrationFee: "1500/- Per Team",
-    registrationLink: "https://amritaicpc.in/?utm_source=103&utm_medium=Email_Description&utm_campaign=ICPCAM2026",
+    registrationLink: "[for Link, Click here ↑](https://docs.google.com/forms/d/e/1FAIpQLScGiobgT6Iq2Nu5ZTIYIoZJ07NakZ8d6SzIr58yBqb5Jl1QVQ/closedform)",
     registrationDeadline: "Sept 25, 2026",
     onlinePrelims: "Oct 3, 2026 (2.5 hours)",
     preliminaryFormat: "Online contest; top teams advance to onsite Regionals",
