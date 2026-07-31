@@ -8,6 +8,48 @@ body {
   font-family: var(--font-body);
   overflow-x: hidden;
   position: relative;
+  transition: background-color var(--duration-med) var(--ease-out), color var(--duration-med) var(--ease-out);
+}
+
+/* Smooth, defined day/night crossfade: surfaces and borders ease
+   instead of snapping when the theme toggles. Buttons/interactive
+   elements already have their own hover transitions and are left
+   alone so those still feel snappy. */
+.navbar,
+.about-card,
+.benefit-card,
+.help-card,
+.video-card,
+.team-card,
+.faculty-card,
+.facts-table,
+.facts-note,
+.journey-card,
+.roadmap__marker-dot,
+.footer,
+.notif-toast__card,
+.notif-dash {
+  transition: background-color var(--duration-med) var(--ease-out), border-color var(--duration-med) var(--ease-out), box-shadow var(--duration-med) var(--ease-out), color var(--duration-med) var(--ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  .navbar,
+  .about-card,
+  .benefit-card,
+  .help-card,
+  .video-card,
+  .team-card,
+  .faculty-card,
+  .facts-table,
+  .facts-note,
+  .journey-card,
+  .roadmap__marker-dot,
+  .footer,
+  .notif-toast__card,
+  .notif-dash {
+    transition: none;
+  }
 }
 
 /* Ambient background glow, fixed behind all content */
@@ -41,6 +83,28 @@ section {
   }
   .container {
     padding-inline: var(--space-md);
+  }
+}
+
+/* Smallest phones (older/compact devices, folded foldables) */
+@media (max-width: 380px) {
+  .container {
+    padding-inline: var(--space-sm);
+  }
+  section {
+    padding-block: var(--space-xl);
+  }
+  .btn {
+    padding: 0.75rem 1.2rem;
+    font-size: var(--fs-small);
+  }
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero__meta {
+    flex-wrap: wrap;
+    row-gap: 4px;
   }
 }
 

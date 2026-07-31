@@ -8,8 +8,8 @@
   --color-bg-alt: #0a0d16;
   --color-surface: #0e1220;
   --color-surface-raised: #131829;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-strong: rgba(255, 255, 255, 0.16);
+  --color-border: rgba(255, 255, 255, 0.09);
+  --color-border-strong: rgba(255, 255, 255, 0.2);
 
   /* ---- Color: Text ---- */
   --color-text-primary: #f4f6fb;
@@ -77,4 +77,26 @@
     rgba(6, 7, 12, 0.65) 45%,
     rgba(6, 7, 12, 0.85) 100%
   );
+}
+
+/* ---------------------------------------------
+   Large screens / TVs
+   A wider container and a slightly larger spacing scale
+   so the layout doesn't read as small and margin-heavy on
+   a big display viewed from a distance. Font sizes already
+   cap out via clamp() in --fs-hero / --fs-h1 / --fs-h2, so
+   only layout-scale tokens need bumping here.
+   --------------------------------------------- */
+@media (min-width: 1600px) {
+  :root {
+    --container-width: 1440px;
+    --space-2xl: 6.5rem;
+    --space-3xl: 9.5rem;
+  }
+}
+
+@media (min-width: 2200px) {
+  :root {
+    --container-width: 1680px;
+  }
 }

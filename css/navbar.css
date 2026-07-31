@@ -27,15 +27,26 @@
   gap: var(--space-lg);
 }
 
+/* Group the partner logo with the action buttons so the two
+   logos (brand on the left, partner on the right) bookend the
+   navbar evenly, with nav links free to occupy the middle. */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-shrink: 0;
+}
+
 .navbar__brand {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
   font-family: var(--font-display);
+  flex-shrink: 0;
 }
 
 .navbar__logo {
-  height: 34px;
+  height: 46px;
   width: auto;
   display: none;
 }
@@ -48,7 +59,75 @@
 
 @media (min-width: 720px) {
   .navbar__logo {
-    height: 40px;
+    height: 54px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .navbar__logo {
+    height: 64px;
+  }
+}
+
+/* ---- Right-side partner/sponsor logo ----
+   Sized to match .navbar__logo so both sides read as
+   equally important. Sits between the nav links and the
+   action buttons; collapses out of the way on small
+   screens (see mobile block below) since the primary CTA
+   takes priority there. */
+.navbar__partner-logo {
+  display: none;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1080px) {
+  .navbar__partner-logo {
+    display: flex;
+  }
+}
+
+.navbar__partner-logo img {
+  height: 46px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+}
+
+@media (min-width: 1600px) {
+  .navbar__partner-logo img {
+    height: 64px;
+    max-width: 220px;
+  }
+}
+
+/* Until assets/banner.png is added, show a clearly-labelled
+   placeholder box instead of a broken-image icon. */
+.navbar__partner-logo--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  min-width: 96px;
+  padding-inline: var(--space-sm);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+.navbar__partner-logo--empty::after {
+  content: "Add assets/banner.png";
+}
+
+@media (min-width: 1600px) {
+  .navbar__partner-logo--empty {
+    height: 64px;
+    min-width: 120px;
   }
 }
 

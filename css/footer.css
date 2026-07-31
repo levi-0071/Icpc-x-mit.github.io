@@ -11,9 +11,15 @@
 
 .footer__grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  grid-template-columns: 1.4fr 2fr;
   gap: var(--space-lg);
   padding-bottom: var(--space-xl);
+}
+
+.footer__grid-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
 }
 
 .footer__brand-text {
@@ -121,16 +127,23 @@
 
 @media (max-width: 900px) {
   .footer__grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
   }
 }
 
 @media (max-width: 560px) {
-  .footer__grid {
-    grid-template-columns: 1fr;
+  .footer__grid-columns {
+    grid-template-columns: 1fr 1fr;
   }
   .footer__bottom {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 380px) {
+  .footer__grid-columns {
+    grid-template-columns: 1fr;
   }
 }

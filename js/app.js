@@ -48,6 +48,8 @@
   }
 
   async function init() {
+    await safeInit("ContentModule", () => ContentModule.init());
+
     applyConfigLinks();
     setCurrentYear();
 

@@ -54,13 +54,13 @@ const SITE_CONFIG = {
     howToRegisterVideo: "https://www.youtube.com/embed/[HOW_TO_REGISTER_VIDEO_ID]",
 
     // TODO: replace VIDEO_ID with the real "What is ICPC" YouTube video ID
-    whatIsIcpcVideo: "https://youtu.be/JB-WCVlZ30E?si=A1WFQJHp1xBQqNDh",
+    whatIsIcpcVideo: "https://www.youtube.com/embed/JB-WCVlZ30E?si=G6z7TOrvtI1kBptz",
 
     // TODO: replace VIDEO_ID with the real 2024 highlights YouTube video ID
-    amritapuri2024Highlights: "https://youtu.be/WjXCyD8Xkgo?si=LamPfSxfmaQPNrzI",
+    amritapuri2024Highlights: "https://www.youtube.com/embed/WjXCyD8Xkgo?si=uU2-wCZzvOOL_-tR",
 
     // TODO: replace with the real Google Form link for the floating Help button
-    helpForm: "https://docs.google.com/forms/d/e/1FAIpQLSdG5YSDJBEV35p19BvaS3VdkKHECket0MD4Tni0HnKSKWyjYw/viewform?usp=dialog",
+    helpForm: "https://docs.google.com/forms/d/e/1FAIpQLScGiobgT6Iq2Nu5ZTIYIoZJ07NakZ8d6SzIr58yBqb5Jl1QVQ/viewform",
 
     linkedin: "https://www.linkedin.com/company/icpc-asiawest-amritapuri",
     whatsappCommunity: "https://chat.whatsapp.com/Lxf9JfUmmvuHjgiZSzRPhx"
